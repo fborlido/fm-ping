@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap");
+
+$Blue: hsl(223, 87%, 63%);
+$PaleBlue: hsl(223, 100%, 88%);
+$LightRed: hsl(354, 100%, 66%);
+$Gray: hsl(0, 0%, 59%);
+$VeryDarkBlue: hsl(209, 33%, 12%);
+
+$ff: "Libre Franklin", sans-serif;
+$fs: 20px;
+
+* {
+  margin: 0%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  font-family: $ff;
+  font-size: $fs;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+main {
+  min-height: 100vh;
+  padding: 3em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.top {
+  width: 100%;
+}
+
+.logo {
+  max-width: 4em;
+  margin: 2em auto;
+}
+
+.text {
+  color: $VeryDarkBlue;
+  text-align: center;
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+    font-weight: 300;
+
+    span {
+      font-weight: 700;
+    }
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+  margin-top: 2em;
+  position: relative;
+
+  & > * {
+    padding: 1em 2em;
+    border-radius: 1.5em;
+  }
+
+  .input {
+    border: 1px solid $PaleBlue;
+
+    &::placeholder {
+      color: $PaleBlue;
+    }
+
+    &--error {
+      border: 1px solid $LightRed;
+    }
+  }
+
+  .errorText {
+    font-size: 0.5em;
+    font-style: italic;
+    text-align: center;
+    margin-top: -15px;
+    bottom: -3em;
+    color: $LightRed;
+    display: none;
+
+    &--error {
+      display: block;
+    }
+  }
+
+  button {
+    background-color: $Blue;
+    font-family: inherit;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 200ms ease;
+
+    &:hover {
+      background-color: $PaleBlue;
+    }
+  }
+}
+
+.footer {
+  .socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    i {
+      border: 1px solid $PaleBlue;
+      display: grid;
+      place-items: center;
+      padding: 0.4em;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 200ms ease;
+
+      &:hover {
+        background-color: $Blue;
+
+        & > * {
+          fill: white;
+        }
+      }
+
+      & > * {
+        width: 0.7em;
+        height: 0.7em;
+        fill: $Blue;
+      }
+    }
+  }
+
+  .copy {
+    color: $Gray;
+    font-size: 0.5em;
+    text-align: center;
+    margin-top: 2em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  form {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .input {
+      flex: 1;
+    }
+
+    .errorText {
+      position: absolute;
+    }
+
+    button {
+      min-width: 15em;
+    }
+  }
+}
